@@ -5,10 +5,14 @@ import { AppContainer } from './AppContainer/AppContainer';
 import { FeedbackStats } from './FeedbackStats/FeedbackStats';
 import { NotificationMessage } from './notification-message/NotificationMessage';
 
-export const App = () => {
-  const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
+export const App = ({
+  initialGoodNumber = 0,
+  initialNeutralNumber = 0,
+  initialBadNumber = 0,
+}) => {
+  const [good, setGood] = useState(initialGoodNumber);
+  const [neutral, setNeutral] = useState(initialNeutralNumber);
+  const [bad, setBad] = useState(initialBadNumber);
 
   const onLeavingFeedback = options => {
     switch (options) {
